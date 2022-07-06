@@ -16,6 +16,6 @@ public class PointsService {
 
     public List<PointsDto> showAllPoints() {
         List<Points> points = pointsRepository.findAll();
-        return Converter.ConvertPointsToPointsDto(points);
+        return Converter.convertPointsListToPointsDtoList(points);
     }
 }
