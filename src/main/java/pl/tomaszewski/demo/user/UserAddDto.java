@@ -1,16 +1,6 @@
 package pl.tomaszewski.demo.user;
-import pl.tomaszewski.demo.points.Points;
 
-import javax.persistence.*;
-import java.util.List;
-import java.util.UUID;
-
-@Entity
-public class User {
-
-    @Id
-    private UUID id;
-
+public class UserAddDto {
     private String firstName;
 
     private String lastName;
@@ -19,36 +9,11 @@ public class User {
 
     private String nick;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-//    @OneToMany(mappedBy = "user", cascade = {CascadeType.MERGE,CascadeType.PERSIST})
-    private List<Points>points;
-
-    public User() {
-    }
-
-    public User(UUID id, String firstName, String lastName, String password, String nick, List<Points> points) {
-        this.id = id;
+    public UserAddDto(String firstName, String lastName, String password, String nick) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
         this.nick = nick;
-        this.points = points;
-    }
-
-    public List<Points> getPoints() {
-        return points;
-    }
-
-    public void setPoints(List<Points> points) {
-        this.points = points;
-    }
-
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
     }
 
     public String getFirstName() {

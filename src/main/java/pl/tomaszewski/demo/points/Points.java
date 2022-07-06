@@ -23,7 +23,8 @@ public class Points {
    @Enumerated(EnumType.STRING)
     private Tasks tasks;
 
-   @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+   @ManyToOne(cascade = CascadeType.ALL)
+//   @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
    private User user;
 
     public User getUser() {
