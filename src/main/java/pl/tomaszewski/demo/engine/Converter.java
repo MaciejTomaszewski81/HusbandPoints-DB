@@ -40,17 +40,4 @@ public class Converter {
         }
         return pointsDto;
     }
-
-//    public static List<PointsDto> ConvertPointsToPointsDto(User user){
-//        List<PointsDto> pointsDto = new ArrayList<>();
-//        for (Points points1 : user.getPoints()){
-//            int score = points1.getPoints();
-//            Tasks task = points1.getTasks();
-//            LocalDate date = points1.getDate();
-//            PointsDto pointsDto1 = new PointsDto(score, date, task);
-//            pointsDto.add(pointsDto1);
-//        }
-//        return pointsDto;
-//    }
-
 }

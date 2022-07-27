@@ -4,7 +4,6 @@ import org.springframework.stereotype.Service;
 import pl.tomaszewski.demo.engine.Converter;
 
 import java.util.List;
-
 @Service
 public class PointsService {
 

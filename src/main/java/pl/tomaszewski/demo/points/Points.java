@@ -27,6 +27,17 @@ public class Points {
 //   @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
    private User user;
 
+    public Points() {
+    }
+
+    public Points(UUID id, int points, LocalDate date, Tasks tasks, User user) {
+        this.id = id;
+        this.points = points;
+        this.date = date;
+        this.tasks = tasks;
+        this.user = user;
+    }
+
     public User getUser() {
         return user;
     }

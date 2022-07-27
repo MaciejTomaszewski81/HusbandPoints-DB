@@ -1,12 +1,16 @@
 package pl.tomaszewski.demo.user;
 
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.scheduling.config.Task;
 import org.springframework.util.ReflectionUtils;
 import org.springframework.stereotype.Service;
 import pl.tomaszewski.demo.engine.Converter;
+import pl.tomaszewski.demo.engine.Tasks;
 import pl.tomaszewski.demo.points.Points;
+import pl.tomaszewski.demo.points.UpdatePointsDto;
 
 import java.lang.reflect.Field;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -60,15 +64,6 @@ public class UserService {
         userRepository.save(user);
         return Converter.convertUserToSingleUserDto(user);
     }
-//    public UserDto updateUser(UserAddDto userAddDto, String nick) {
-//        User userDb = userRepository.findByNick(nick);
-//        userDb.setFirstName(userAddDto.getFirstName());
-//        userDb.setLastName(userAddDto.getLastName());
-//        userDb.setNick(userAddDto.getNick());
-//        userDb.setPassword(userAddDto.getPassword());
-//        userRepository.save(userDb);
-//        return Converter.convertUserToSingleUserDto(userDb);
-//    }
 
     public void deleteByNick(String nick) {
         try {
@@ -78,5 +73,18 @@ public class UserService {
         } catch (EmptyResultDataAccessException e) {
             //ignore
         }
+    }
+
+    public UserDto updatePoints(String nick, UpdatePointsDto updatePointsDto) {
+        User user = userRepository.findByNick(nick);
+        List<Points> points = user.getPoints();
+        UUID id = UUID.randomUUID();
+        int point = updatePointsDto.getPoints();
+        Tasks task= updatePointsDto.getTasks();
+        LocalDate date = LocalDate.now();
+        Points points1 = new Points(id,point,date,task,user);
+        points.add(points1);
+        userRepository.save(user);
+        return Converter.convertUserToSingleUserDto(user);
     }
 }

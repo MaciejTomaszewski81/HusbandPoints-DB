@@ -4,17 +4,14 @@ import pl.tomaszewski.demo.engine.Tasks;
 
 import java.time.LocalDate;
 
-public class PointsDto {
+public class UpdatePointsDto {
 
     private int points;
 
-    private LocalDate date;
-
     private Tasks tasks;
 
-    public PointsDto(int points, LocalDate date, Tasks tasks) {
+    public UpdatePointsDto(int points, Tasks tasks) {
         this.points = points;
-        this.date = date;
         this.tasks = tasks;
     }
 
@@ -24,14 +21,6 @@ public class PointsDto {
 
     public void setPoints(int points) {
         this.points = points;
-    }
-
-    public LocalDate getDate() {
-        return date;
-    }
-
-    public void setDate(LocalDate date) {
-        this.date = date;
     }
 
     public Tasks getTasks() {
