@@ -1,7 +1,6 @@
 package pl.tomaszewski.demo.user;
 
 import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.scheduling.config.Task;
 import org.springframework.util.ReflectionUtils;
 import org.springframework.stereotype.Service;
 import pl.tomaszewski.demo.engine.Converter;
